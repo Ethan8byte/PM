@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DNS Web Page</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: linear-gradient(270deg, #ff0077, #7a00ff, #00c3ff, #00ff9d);
+      background-size: 800% 800%;
+      animation: gradientShift 12s ease infinite;
+      position: relative;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Animated wave background */
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 180px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 1000% 1000% 0 0;
+      animation: waveAnim 8s linear infinite;
+      z-index: 1;
+    }
+
+    .wave:nth-child(2) {
+      animation-delay: -4s;
+      opacity: 0.5;
+    }
+
+    @keyframes waveAnim {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Floating particles */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      bottom: -150px;
+      width: 15px;
+      height: 15px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      animation: rise 10s infinite ease-in;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0.6;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    /* Center card */
+    .content {
+      text-align: center;
+      z-index: 10;
+      animation: fadeIn 2.5s ease-out;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 40px 60px;
+      border-radius: 25px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .content h1 {
+      font-size: 4em;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #fff, 0 0 20px #00c3ff, 0 0 40px #00ff9d; }
+      to { text-shadow: 0 0 20px #fff, 0 0 30px #ff0077, 0 0 60px #7a00ff; }
+    }
+
+    .content p {
+      font-size: 1.3em;
+      margin-top: 15px;
+      opacity: 0.85;
+      animation: fadeUp 4s ease-in-out;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Button */
+    .content a {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 36px;
+      background: #fff;
+      color: #111;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .content a:hover {
+      background: #00ff9d;
+      color: #000;
+      transform: scale(1.08);
+      box-shadow: 0 0 40px #00ff9d;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px #fff; }
+      50% { box-shadow: 0 0 30px #00c3ff; }
+      100% { box-shadow: 0 0 10px #fff; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .content {
+        padding: 30px 40px;
+      }
+      .content h1 {
+        font-size: 2.5em;
+      }
+      .content p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Waves -->
+  <div class="wave"></div>
+  <div class="wave"></div>
+
+  <!-- Floating Particles -->
+  <div class="particles">
+    <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 25%; animation-delay: 2s; width: 20px; height: 20px;"></div>
+    <div class="particle" style="left: 40%; animation-delay: 4s;"></div>
+    <div class="particle" style="left: 55%; animation-delay: 1s;     width: 10px; height: 10px;"></div>
+    <div class="particle" style="left: 70%; animation-delay: 3s; width: 25px; height: 25px;"></div>
+    <div class="particle" style="left: 85%; animation-delay: 5s;"></div>
+  </div>
+
+  <!-- Centered Content -->
+  <div class="content">
+    <h1>Welcome</h1>
+    <p>Testing Page</p>
+    <a href="#">Explore Now</a>
+  </div>
+
+</body>
+</html>
